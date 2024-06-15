@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consola Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="consola">
+        <div class="row" id="controles">
+            <div class="control-panel">
+                <div class="control-item">
+                    <label for="volumen">Volumen</label>
+                    <div class="circular-slider" id="volumen"></div>
+                </div>
+                <div class="rectangulo">
+                    <!-- Representa el área para el dimmer de tempo eliminado -->
+                </div>
+                <div class="play-controls">
+                    <button id="play">▶️</button>
+                    <button id="stop">⏹️</button>
+                </div>
+            </div>
+
+            <div class="visualization"></div>
+
+            <div class="sections">
+                <div class="section" id="harmonia">
+                    <h2>Harmonía</h2>
+                    <label>Tono</label>
+                    <div class="circular-slider" id="tono-harmonia"></div>
+                    <label>Volumen</label>
+                    <div class="circular-slider" id="volumen-harmonia"></div>
+                </div>
+                <div class="section" id="melodia">
+                    <h2>Melodía</h2>
+                    <label>Tono</label>
+                    <div class="circular-slider" id="tono-melodia"></div>
+                    <label>Volumen</label>
+                    <div class="circular-slider" id="volumen-melodia"></div>
+                </div>
+                <div class="section" id="ritmo">
+                    <h2>Ritmo</h2>
+                    <label>Tono</label>
+                    <div class="circular-slider" id="tono-ritmo"></div>
+                    <label>Volumen</label>
+                    <div class="circular-slider" id="volumen-ritmo"></div>
+                </div>
+                <div class="section" id="fondo">
+                    <h2>Fondo</h2>
+                    <label>Tono</label>
+                    <div class="circular-slider" id="tono-fondo"></div>
+                    <label>Volumen</label>
+                    <div class="circular-slider" id="volumen-fondo"></div>
+                </div>
+                <div class="section" id="adornos">
+                    <h2>Adornos</h2>
+                    <label>Tono</label>
+                    <div class="circular-slider" id="tono-adornos"></div>
+                    <label>Volumen</label>
+                    <div class="circular-slider" id="volumen-adornos"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons-grid">
+            <div class="row">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="btn" id="btn1"></button>
+                <button class="btn" id="btn2"></button>
+            </div>
+            <div class="row">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="btn" id="btn3"></button>
+                <button class="btn" id="btn4"></button>
+                <button class="btn" id="btn5"></button>
+                <button class="btn" id="btn6"></button>
+            </div>
+            <div class="row">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="btn" id="btn7"></button>
+                <button class="btn" id="btn8"></button>
+                <button class="btn" id="btn9"></button>
+                <button class="btn" id="btn10"></button>
+            </div>
+            <div class="row">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="btn" id="btn11"></button>
+                <button class="btn" id="btn12"></button>
+                <button class="btn" id="btn13"></button>
+                <button class="btn" id="btn14"></button>
+                <button class="btn" id="btn15"></button>
+                <button class="btn" id="btn16"></button>
+                <button class="btn" id="btn17"></button>
+                <button class="btn" id="btn18"></button>
+            </div>
+            <div class="row">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="btn" id="btn19"></button>
+                <button class="btn" id="btn20"></button>
+                <button class="btn" id="btn21"></button>
+                <button class="btn" id="btn22"></button>
+                <button class="btn" id="btn23"></button>
+                <button class="btn" id="btn24"></button>
+                <button class="btn" id="btn25"></button>
+                <button class="btn" id="btn26"></button>
+                <button class="btn" id="btn27"></button>
+                <button class="btn" id="btn28"></button>
+                <button class="btn" id="btn29"></button>
+                <button class="btn" id="btn30"></button>
+                <button class="btn" id="btn31"></button>
+                <button class="btn" id="btn32"></button>
+                <button class="btn" id="btn33"></button>
+                <button class="btn" id="btn34"></button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="circular-slider.js"></script>
+</body>
+</html>
