@@ -54,13 +54,13 @@ class CircularSlider {
 
     draw() {
         const angle = this.value / 100 * 360;
-        this.indicator.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+        this.indicator.style.transform = `translate(0%, -50%) rotate(${angle}deg)`;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const sliders = document.querySelectorAll('.circular-slider');
     sliders.forEach(slider => {
-        new CircularSlider(slider, { value: 50 });
+        new CircularSlider(slider, { value: -25 });
     });
 });

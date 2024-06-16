@@ -8,18 +8,20 @@
 </head>
 <body>
     <div class="consola">
-        <div class="row" id="controles">
+        <div class="controles">
             <div class="control-panel">
-                <div class="control-item">
-                    <label for="volumen">Volumen</label>
+                <h2 class="titulo">Consola</h2>
+                <div class="slider-item">
                     <div class="circular-slider" id="volumen"></div>
+                    <h3 class="etiqueta">Volumen</h3>
                 </div>
-                <div class="rectangulo">
-                    <!-- Representa el área para el dimmer de tempo eliminado -->
+                <div class="slider-item">
+                    <div class="tempo"><!-- área para el tempo --></div>
+                    <h3 class="etiqueta">Tempo</h3>
                 </div>
                 <div class="play-controls">
-                    <button id="play">▶️</button>
-                    <button id="stop">⏹️</button>
+                    <button class="btn" id="reproducir">▶️</button>
+                    <button class="btn" id="reiniciar">⏹️</button>
                 </div>
             </div>
 
@@ -27,39 +29,59 @@
 
             <div class="sections">
                 <div class="section" id="harmonia">
-                    <h2>Harmonía</h2>
-                    <label>Tono</label>
-                    <div class="circular-slider" id="tono-harmonia"></div>
-                    <label>Volumen</label>
-                    <div class="circular-slider" id="volumen-harmonia"></div>
+                    <h2 class="titulo">Harmonía</h2>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="tono-harmonia"></div>
+                        <h3 class="etiqueta">Tono</h3>
+                    </div>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="volumen-harmonia"></div>
+                        <h3 class="etiqueta">Volumen</h3>
+                    </div>
                 </div>
                 <div class="section" id="melodia">
-                    <h2>Melodía</h2>
-                    <label>Tono</label>
-                    <div class="circular-slider" id="tono-melodia"></div>
-                    <label>Volumen</label>
-                    <div class="circular-slider" id="volumen-melodia"></div>
+                    <h2 class="titulo">Melodía</h2>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="tono-melodia"></div>
+                        <h3 class="etiqueta">Tono</h3>
+                    </div>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="volumen-melodia"></div>
+                        <h3 class="etiqueta">Volumen</h3>
+                    </div>
                 </div>
                 <div class="section" id="ritmo">
-                    <h2>Ritmo</h2>
-                    <label>Tono</label>
-                    <div class="circular-slider" id="tono-ritmo"></div>
-                    <label>Volumen</label>
-                    <div class="circular-slider" id="volumen-ritmo"></div>
+                    <h2 class="titulo">Ritmo</h2>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="tono-ritmo"></div>
+                        <h3 class="etiqueta">Tono</h3>
+                    </div>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="volumen-ritmo"></div>
+                        <h3 class="etiqueta">Volumen</h3>
+                    </div>
                 </div>
                 <div class="section" id="fondo">
-                    <h2>Fondo</h2>
-                    <label>Tono</label>
-                    <div class="circular-slider" id="tono-fondo"></div>
-                    <label>Volumen</label>
-                    <div class="circular-slider" id="volumen-fondo"></div>
+                    <h2 class="titulo">Fondo</h2>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="tono-fondo"></div>
+                        <h3 class="etiqueta">Tono</h3>
+                    </div>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="volumen-fondo"></div>
+                        <h3 class="etiqueta">Volumen</h3>
+                    </div>
                 </div>
                 <div class="section" id="adornos">
-                    <h2>Adornos</h2>
-                    <label>Tono</label>
-                    <div class="circular-slider" id="tono-adornos"></div>
-                    <label>Volumen</label>
-                    <div class="circular-slider" id="volumen-adornos"></div>
+                    <h2 class="titulo">Adornos</h2>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="tono-adornos"></div>
+                        <h3 class="etiqueta">Tono</h3>
+                    </div>
+                    <div class="slider-item">
+                        <div class="circular-slider" id="volumen-adornos"></div>
+                        <h3 class="etiqueta">Volumen</h3>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,60 +11,76 @@ body {
 }
 
 .consola {
+    display: flex;
+    flex-direction: column;
     width: 1500px;
     background-color: #e0e0e0;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap:20px;
 }
 
-.row {
+.controles { /* Seccion de control de parametros (Fila de arriba)*/
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px; /* Espacio entre elementos en la fila */
-}
-
-#controles{
-    height: 360px; /* Altura igual para todas las divisiones */
-    padding: 10px;
+    flex-direction: row;
+    gap: 20px;
 }
 .control-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    width: 120px; /* Ancho del panel de control */
     background-color: #b3b3b3;
+    border: 3px solid;
+    border-color: #7D7D7D;
     border-radius: 12px;
     text-align: center;
-    width: 120px; /* Ancho del panel de control */
-    height: 100%; /* Altura igual a las otras divisiones */
+    padding: 10px;
 }
 
-.control-item {
+.tempo {
+    width: 100%;
+    height: 60px;
+    background-color: #d9d9d9;
+    border-radius: 12px;
+}
+.play-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#reproducir, #reiniciar {
+    width: 50px;
+    height: 50px;
+    background-color: #7F7F7F;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-item {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 10px;
 }
-
-.rectangulo {
-    width: 60px;
-    height: 60px;
-    background-color: #434343;
-    border-radius: 12px;
-    margin: 10px 0;
-}
-
 .circular-slider {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     position: relative;
+    display: block;
 }
 
 .circular-slider .outer-circle {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background-color: #434343;
     position: absolute;
@@ -73,8 +89,8 @@ body {
 }
 
 .circular-slider .inner-circle {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #7f7d7d;
     position: absolute;
@@ -84,8 +100,8 @@ body {
 }
 
 .circular-slider .indicator {
-    width: 15px;
-    height: 3px;
+    width: 25px;
+    height: 8px;
     background-color: #d9d9d9;
     position: absolute;
     top: 50%;
@@ -96,7 +112,6 @@ body {
 
 .visualization {
     flex: 1;
-    height: 100%; /* Altura igual a las otras divisiones */
     background-color: #b3b3b3;
     display: flex;
     justify-content: center;
@@ -107,14 +122,14 @@ body {
 .sections {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
     flex: 1;
-    height: 100%; /* Altura igual a las otras divisiones */
+    gap: 10px;
 }
 
 .section {
-    flex: 1;
-    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 3px solid; /* Borde de color específico */
     border-radius: 12px; /* Bordes curvos */
     padding: 10px;
@@ -122,16 +137,16 @@ body {
     width: 120px; /* Ancho de las secciones */
 }
 
-.section h2 {
-    margin-top: 0;
+.titulo {
     font-size: 25px;
     font-weight: bold;
 }
-
-.section label, .section .circular-slider {
-    display: block;
-    margin: 10px auto; /* Centrando los elementos dentro de la sección */
+.etiqueta {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top:0px;
 }
+
 
 #harmonia {
     border-color: #F6B142;
@@ -161,16 +176,18 @@ body {
 
 .row {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos en la fila */
 }
+
 
 .btn {
     height: 50px;
     flex: 1;
-    border-radius: 5px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -181,11 +198,8 @@ body {
 .mute, .solo {
     width: 50px;
     height: 50px;
-    border-radius: 5px;
     background-color: #bdc3c7;
-    border: none;
     cursor: pointer;
-    color: #333;
     font-weight: bold;
     display: flex;
     justify-content: center;
