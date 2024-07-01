@@ -178,15 +178,12 @@ body {
     gap: 20px;
 }
 .silencio-solo {
-    width: 10%;
     display: flex;
     flex-direction: row;
     border: 3px solid transparent;
     border-radius: 12px;
     text-align: center;
     gap: 20px;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 .silencio, .solos{
     width: 100%;
