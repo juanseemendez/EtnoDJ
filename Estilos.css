@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Josefin+Sans:wght@400;600&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.consola {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column; 
+    background-color: #d8d8d8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap:20px;
+}
+
+.controles { /* Seccion de control de parametros (Fila de arriba)*/
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.control-panel { /* Control de parametros principal*/
+    width: 10%; /* Ancho del panel de control */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #b3b3b3;
+    border: 3px solid;
+    border-color: #7D7D7D;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+}
+
+.titulo {
+    font-size: 100%;
+    font-weight: bold;
+    margin: 0px;
+}
+.etiqueta {
+    font-size: 80%;
+    font-weight: normal;
+    margin-top: 5px;
+}
+.entrada-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tempo {
+    width: inherit;
+    height: 45px;
+    background-color: #d9d9d9;
+    border-radius: 12px;
+}
+
+.deslizador-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deslizador-circular {
+    width: 55px;
+    height: 55px;
+    position: relative;
+    display: block;
+}
+
+.deslizador-circular .outer-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #434343;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.deslizador-circular .inner-circle {
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    background-color: #7f7d7d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.deslizador-circular .indicator {
+    width: 33%;
+    height: 10%;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.controles-reproduccion { /*Botones de reproduccir y parar la consola en general*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#reproducir, #reiniciar {
+    width: 40px;
+    height: 40px;
+    flex: 1;  
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #7F7F7F;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.visualizador {
+    height: 100%;
+    flex: 1;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #b3b3b3;
+}
+
+.control-audios {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.control-categoria {   
+    width: 20%; /* Ancho de las secciones */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid; /* Borde de color específico */
+    border-radius: 12px; /* Bordes curvos */
+    padding: 10px;
+    text-align: center;
+}
+
+#armonia {border-color: #F6B142;}
+#melodia {border-color: #F36326;}
+#ritmo {border-color: #66A13F;}
+#fondo {border-color: #EC085B;}
+#adornos {border-color: #8D0D9C;}
+
+/* Sección de los botones para los audios*/ 
+.selectores-audios {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.silencio-solo {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    text-align: center;
+    gap: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.silencio, .solos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos de forma equitativa */
+    flex-direction: column;
+    align-items: center;
+}
+.mute, .solo {
+    width: 45px;
+    height: 45px;
+    background-color: #b3b3b3;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audios {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.fila {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos en la fila */
+}
+
+.selector {
+    height: 100%;
+    flex: 1;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mute:hover, .solo:hover {
+    background-color: #95a5a6;
+}
+
+/* Estilos para selector1 y selector2 */
+#selector1, #selector2 {
+    background-color: #BDAC90;
+}
+#selector1.active, #selector2.active {
+    background-color: #F6B142;
+}
+
+/* Estilos para selector3, selector4, selector5 y selector6 */
+#selector3, #selector4, #selector5, #selector6 {
+    background-color: #BC9889;
+}
+#selector3.active, #selector4.active, #selector5.active, #selector6.active {
+    background-color: #F36326;
+}
+
+/* Estilos para selector7, selector8, selector9 y selector10 */
+#selector7, #selector8, #selector9, #selector10 {
+    background-color: #99A88f;
+}
+#selector7.active, #selector8.active, #selector9.active, #selector10.active {
+    background-color: #66A13F;
+}
+
+/* Estilos para selector11 a selector18 */
+#selector11, #selector12, #selector13, #selector14, #selector15, #selector16, #selector17, #selector18 {
+    background-color: #bb8196;
+}
+#selector11.active, #selector12.active, #selector13.active, #selector14.active, #selector15.active, #selector16.active, #selector17.active, #selector18.active {
+    background-color: #EC085B;
+}
+
+/* Estilos para selector19 a selector34 */
+#selector19, #selector20, #selector21, #selector22, #selector23, #selector24, #selector25, #selector26, #selector27, #selector28, #selector29, #selector30, #selector31, #selector32, #selector33, #selector34 {
+    background-color: #A382A6;
+}
+#selector19.active, #selector20.active, #selector21.active, #selector22.active, #selector23.active, #selector24.active, #selector25.active, #selector26.active, #selector27.active, #selector28.active, #selector29.active, #selector30.active, #selector31.active, #selector32.active, #selector33.active {
+    background-color: #8D0D9C;
+}

@@ -4,92 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consola Digital</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Estilos.css">
 </head>
 <body>
     <div class="consola">
         <div class="controles">
             <div class="control-panel">
                 <h2 class="titulo">Consola</h2>
-                <div class="slider-item">
-                    <div class="circular-slider" id="volumen"></div>
+                <div class="deslizador-item">
+                    <div class="deslizador-circular" id="volumen"></div>
                     <h3 class="etiqueta">Volumen</h3>
                 </div>
-                <div class="slider-item">
+                <div class="entrada-item">
                     <div class="tempo"><!-- área para el tempo --></div>
                     <h3 class="etiqueta">Tempo</h3>
                 </div>
-                <div class="play-controls">
-                    <button class="btn" id="reproducir">▶️</button>
-                    <button class="btn" id="reiniciar">⏹️</button>
+                <div class="controles-reproduccion">
+                    <button id="reproducir"><i class="fa-solid fa-play"></i></button>
+                    <button id="reiniciar"><i class="fa-solid fa-stop"></i></button>
                 </div>
             </div>
 
-            <div class="visualization"></div>
+            <div class="visualizador"></div>
 
-            <div class="sections">
-                <div class="section" id="harmonia">
-                    <h2 class="titulo">Harmonía</h2>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="tono-harmonia"></div>
+            <div class="control-audios">
+                <div class="control-categoria" id="armonia">
+                    <h2 class="titulo">Armonía</h2>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="tono-armonia"></div>
                         <h3 class="etiqueta">Tono</h3>
                     </div>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="volumen-harmonia"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="volumen-armonia"></div>
                         <h3 class="etiqueta">Volumen</h3>
                     </div>
                 </div>
-                <div class="section" id="melodia">
+                <div class="control-categoria" id="melodia">
                     <h2 class="titulo">Melodía</h2>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="tono-melodia"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="tono-melodia"></div>
                         <h3 class="etiqueta">Tono</h3>
                     </div>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="volumen-melodia"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="volumen-melodia"></div>
                         <h3 class="etiqueta">Volumen</h3>
                     </div>
                 </div>
-                <div class="section" id="ritmo">
+                <div class="control-categoria" id="ritmo">
                     <h2 class="titulo">Ritmo</h2>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="tono-ritmo"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="tono-ritmo"></div>
                         <h3 class="etiqueta">Tono</h3>
                     </div>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="volumen-ritmo"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="volumen-ritmo"></div>
                         <h3 class="etiqueta">Volumen</h3>
                     </div>
                 </div>
-                <div class="section" id="fondo">
+                <div class="control-categoria" id="fondo">
                     <h2 class="titulo">Fondo</h2>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="tono-fondo"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="tono-fondo"></div>
                         <h3 class="etiqueta">Tono</h3>
                     </div>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="volumen-fondo"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="volumen-fondo"></div>
                         <h3 class="etiqueta">Volumen</h3>
                     </div>
                 </div>
-                <div class="section" id="adornos">
+                <div class="control-categoria" id="adornos">
                     <h2 class="titulo">Adornos</h2>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="tono-adornos"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="tono-adornos"></div>
                         <h3 class="etiqueta">Tono</h3>
                     </div>
-                    <div class="slider-item">
-                        <div class="circular-slider" id="volumen-adornos"></div>
+                    <div class="deslizador-item">
+                        <div class="deslizador-circular" id="volumen-adornos"></div>
                         <h3 class="etiqueta">Volumen</h3>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="buttons-grid">
+        <div class="selectores-audios">
             <div class="silencio-solo">
                 <div class="silencio">
-                    <button class="mute" id="mute-harmonia">M</button>
+                    <button class="mute" id="mute-armonia">M</button>
                     <button class="mute" id="mute-melodia">M</button>
                     <button class="mute" id="mute-ritmo">M</button>
                     <button class="mute" id="mute-fondo">M</button>
@@ -97,7 +98,7 @@
 
                 </div>
                 <div class="solos">
-                    <button class="solo" id="solo-harmonia">S</button>
+                    <button class="solo" id="solo-armonia">S</button>
                     <button class="solo" id="solo-melodia">S</button>
                     <button class="solo" id="solo-ritmo">S</button>
                     <button class="solo" id="solo-fondo">S</button>
@@ -106,54 +107,54 @@
                 </div>
             </div>
             <div class="audios">
-                <div class="row">
-                    <button class="btn" id="btn1"></button>
-                    <button class="btn" id="btn2"></button>
+                <div class="fila"> <!-- Armonía -->
+                    <button class="selector" id="selector1" data-audio="Audios/canto-maguaré.mp3"></button>
+                    <button class="selector" id="selector2"></button>
                 </div>
-                <div class="row">
-                    <button class="btn" id="btn3"></button>
-                    <button class="btn" id="btn4"></button>
-                    <button class="btn" id="btn5"></button>
-                    <button class="btn" id="btn6"></button>
+                <div class="fila"><!-- Melodía -->
+                    <button class="selector" id="selector3" data-audio="Audios/canto-a-yoi.mp3"></button>
+                    <button class="selector" id="selector4"></button>
+                    <button class="selector" id="selector5"></button>
+                    <button class="selector" id="selector6"></button>
                 </div>
-                <div class="row">
-                    <button class="btn" id="btn7"></button>
-                    <button class="btn" id="btn8"></button>
-                    <button class="btn" id="btn9"></button>
-                    <button class="btn" id="btn10"></button>
+                <div class="fila"><!-- Ritmo -->
+                    <button class="selector" id="selector7"></button>
+                    <button class="selector" id="selector8"></button>
+                    <button class="selector" id="selector9"></button>
+                    <button class="selector" id="selector10"></button>
                 </div>
-                <div class="row">
-                    <button class="btn" id="btn11"></button>
-                    <button class="btn" id="btn12"></button>
-                    <button class="btn" id="btn13"></button>
-                    <button class="btn" id="btn14"></button>
-                    <button class="btn" id="btn15"></button>
-                    <button class="btn" id="btn16"></button>
-                    <button class="btn" id="btn17"></button>
-                    <button class="btn" id="btn18"></button>
+                <div class="fila"><!-- Fondo -->
+                    <button class="selector" id="selector11"></button>
+                    <button class="selector" id="selector12"></button>
+                    <button class="selector" id="selector13"></button>
+                    <button class="selector" id="selector14"></button>
+                    <button class="selector" id="selector15"></button>
+                    <button class="selector" id="selector16"></button>
+                    <button class="selector" id="selector17"></button>
+                    <button class="selector" id="selector18"></button>
                 </div>
-                <div class="row">
-                    <button class="btn" id="btn19"></button>
-                    <button class="btn" id="btn20"></button>
-                    <button class="btn" id="btn21"></button>
-                    <button class="btn" id="btn22"></button>
-                    <button class="btn" id="btn23"></button>
-                    <button class="btn" id="btn24"></button>
-                    <button class="btn" id="btn25"></button>
-                    <button class="btn" id="btn26"></button>
-                    <button class="btn" id="btn27"></button>
-                    <button class="btn" id="btn28"></button>
-                    <button class="btn" id="btn29"></button>
-                    <button class="btn" id="btn30"></button>
-                    <button class="btn" id="btn31"></button>
-                    <button class="btn" id="btn32"></button>
-                    <button class="btn" id="btn33"></button>
-                    <button class="btn" id="btn34"></button>
+                <div class="fila"><!-- Adornos -->
+                    <button class="selector" id="selector19"></button>
+                    <button class="selector" id="selector20"></button>
+                    <button class="selector" id="selector21"></button>
+                    <button class="selector" id="selector22"></button>
+                    <button class="selector" id="selector23"></button>
+                    <button class="selector" id="selector24"></button>
+                    <button class="selector" id="selector25"></button>
+                    <button class="selector" id="selector26"></button>
+                    <button class="selector" id="selector27"></button>
+                    <button class="selector" id="selector28"></button>
+                    <button class="selector" id="selector29"></button>
+                    <button class="selector" id="selector30"></button>
+                    <button class="selector" id="selector31"></button>
+                    <button class="selector" id="selector32"></button>
+                    <button class="selector" id="selector33"></button>
+                    <button class="selector" id="selector34"></button>
                 </div>
             </div>
         </div>
     </div>
     <script src="scripts.js"></script>
-    <script src="circular-slider.js"></script>
+    <script src="deslizador-circular.js"></script>
 </body>
 </html>

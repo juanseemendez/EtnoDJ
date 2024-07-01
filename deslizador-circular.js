@@ -59,7 +59,7 @@ class CircularSlider {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sliders = document.querySelectorAll('.circular-slider');
+    const sliders = document.querySelectorAll('.deslizador-circular');
     sliders.forEach(slider => {
         new CircularSlider(slider, { value: -25 });
     });
