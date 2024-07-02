@@ -13,22 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const source = audioContext.createBufferSource();
         source.buffer = audioBuffer;
         source.loop = true;
-        source.connect(audioContext.destination);
+        const gainNode = audioContext.createGain(); // Control de volumen
+        source.connect(gainNode).connect(audioContext.destination);
         source.start();
-        return source;
-    }
-
-    function adjustVolume(id, value) {
-        const gainValue = Math.pow(10, (value - 50) / 20); // Valor de volumen logarítmico en dB
-        console.log(`Adjusting volume for ${id} to ${gainValue} (value: ${value})`);
-        document.querySelectorAll(`.fila [data-section="${id}"]`).forEach(button => {
-            if (audioSources[button.id] && audioSources[button.id].source) {
-                const gainNode = audioContext.createGain();
-                gainNode.gain.value = gainValue;
-                audioSources[button.id].source.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-            }
-        });
+        return { source, gainNode }; // Devolvemos source y gainNode
     }
 
     audioButtons.forEach((button, index) => {
@@ -40,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
         loadAudio(audioUrl).then(audioBuffer => {
             audioSources[button.id] = {
                 buffer: audioBuffer,
-                source: null
+                source: null,
+                gainNode: null // Inicialmente null
             };
 
             button.addEventListener('click', function() {
@@ -50,8 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     audioSources[this.id].source.stop();
                     audioSources[this.id].source = null;
                 } else {
-                    const source = playAudio(audioSources[this.id].buffer);
+                    const { source, gainNode } = playAudio(audioSources[this.id].buffer);
                     audioSources[this.id].source = source;
+                    audioSources[this.id].gainNode = gainNode; // Guardamos el gainNode
                     this.classList.add('active');
                     this.dataset.active = 'true';
                 }
@@ -59,7 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.addEventListener('volumechange', (event) => {
-        adjustVolume(event.detail.id, event.detail.value);
+    // Evento para ajustar el volumen basado en el deslizador
+    document.addEventListener('valuechange', (event) => {
+        const { id, value } = event.detail;
+        const gainValue = value / 100;
+        Object.keys(audioSources).forEach(key => {
+            if (audioSources[key].source && document.querySelector(`#${key}`).dataset.section === id) {
+                audioSources[key].gainNode.gain.setValueAtTime(gainValue, audioContext.currentTime);
+            }
+        });
     });
 });

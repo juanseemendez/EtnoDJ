@@ -1,8 +1,8 @@
-class CircularSlider {
+class DeslizadorCircular {
     constructor(element, options = {}) {
         this.element = element;
-        this.radius = options.radius || 40;
-        this.value = options.value !== undefined ? options.value : 50; // Volumen medio
+        this.radius = options.radius || 30;
+        this.value = options.value !== undefined ? options.value : 0; // Valor inicial
         this.id = options.id || '';
 
         this.init();
@@ -22,7 +22,7 @@ class CircularSlider {
         this.outerCircle.appendChild(this.indicator);
         this.element.appendChild(this.outerCircle);
 
-        this.outerCircle.addEventListener('mousedown', this.startDrag.bind(this));
+        this.indicator.addEventListener('mousedown', this.startDrag.bind(this));
         window.addEventListener('mousemove', this.drag.bind(this));
         window.addEventListener('mouseup', this.stopDrag.bind(this));
 
@@ -48,33 +48,30 @@ class CircularSlider {
         const rect = this.outerCircle.getBoundingClientRect();
         const x = event.clientX - rect.left - rect.width / 2;
         const y = event.clientY - rect.top - rect.height / 2;
-        let angle = Math.atan2(y, x);
+        let angle = Math.atan2(y, x) - Math.PI / 2;
 
         // Convertir ángulo a un rango entre 0 y 2 * PI
-        if (angle < -Math.PI / 2) {
+        if (angle <= 0) {
             angle += 2 * Math.PI;
         }
-
-        // Limitar el ángulo para evitar giros infinitos y cambios abruptos
-        if (angle > 3 * Math.PI / 2) {
-            angle = 3 * Math.PI / 2;
-        } else if (angle < -Math.PI / 2) {
-            angle = -Math.PI / 2;
-        }
+        
+        // Limitar el ángulo para evitar giros infinitos 
+        if (angle <= 3 * Math.PI / 15) angle = 3 * Math.PI / 15;
+        if (angle >= 27 * Math.PI / 15) angle = 27 * Math.PI / 15;
 
         // Calcular valor basado en el ángulo
-        this.value = ((angle + Math.PI / 2) / (2 * Math.PI)) * 100;
+        this.value = ((angle) / (2 * Math.PI)) * 100;
         if (this.value < 0) this.value = 0;
         if (this.value > 100) this.value = 100;
 
-        console.log(`Angle: ${angle}, Volume Value: ${this.value}`);
+        console.log(`Angle: ${angle}, Slider Value: ${this.value}`);
 
         this.draw();
-        this.emitVolumeChange();
+        this.emitValueChange();
     }
 
-    emitVolumeChange() {
-        const event = new CustomEvent('volumechange', {
+    emitValueChange() {
+        const event = new CustomEvent('valuechange', {
             detail: {
                 id: this.id,
                 value: this.value
@@ -84,7 +81,7 @@ class CircularSlider {
     }
 
     draw() {
-        const angle = ((this.value / 100) * 2 * Math.PI) - Math.PI / 2;
+        const angle = ((this.value / 100) * 2 * Math.PI + Math.PI / 2);
         this.indicator.style.transform = `translate(0%, -50%) rotate(${angle}rad)`;
     }
 }
@@ -92,6 +89,6 @@ class CircularSlider {
 document.addEventListener('DOMContentLoaded', () => {
     const sliders = document.querySelectorAll('.deslizador-circular');
     sliders.forEach(slider => {
-        new CircularSlider(slider, { value: 50, id: slider.id });
+        new DeslizadorCircular(slider, { value: 10, id: slider.id });
     });
 });
