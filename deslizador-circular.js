@@ -27,6 +27,7 @@ class DeslizadorCircular {
         window.addEventListener('mouseup', this.stopDrag.bind(this));
 
         this.draw();
+        this.emitValueChange(); // Emitir evento al inicializar
     }
 
     startDrag(event) {

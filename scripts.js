@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(buffer => audioContext.decodeAudioData(buffer));
     }
 
-    function playAudio(audioBuffer) {
+    function playAudio(audioBuffer, initialGain) {
         const source = audioContext.createBufferSource();
         source.buffer = audioBuffer;
         source.loop = true;
         const gainNode = audioContext.createGain(); // Control de volumen
+        gainNode.gain.setValueAtTime(initialGain, audioContext.currentTime); // Volumen inicial
         source.connect(gainNode).connect(audioContext.destination);
         source.start();
         return { source, gainNode }; // Devolvemos source y gainNode
@@ -26,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         button.setAttribute('data-section', sectionId);
 
         loadAudio(audioUrl).then(audioBuffer => {
+            const initialSlider = document.getElementById(sectionId);
+            const initialGain = initialSlider ? parseFloat(initialSlider.dataset.value) / 100 : 1; // Asegurarse de que sea un número válido
+            
+            if (isNaN(initialGain)) {
+                console.error(`Initial gain for section ${sectionId} is not a valid number.`);
+                return;
+            }
+
             audioSources[button.id] = {
                 buffer: audioBuffer,
                 source: null,
@@ -39,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     audioSources[this.id].source.stop();
                     audioSources[this.id].source = null;
                 } else {
-                    const { source, gainNode } = playAudio(audioSources[this.id].buffer);
+                    const { source, gainNode } = playAudio(audioSources[this.id].buffer, initialGain);
                     audioSources[this.id].source = source;
                     audioSources[this.id].gainNode = gainNode; // Guardamos el gainNode
                     this.classList.add('active');
