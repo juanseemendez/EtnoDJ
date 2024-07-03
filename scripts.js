@@ -28,13 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         loadAudio(audioUrl).then(audioBuffer => {
             const initialSlider = document.getElementById(sectionId);
-            const initialGain = initialSlider ? parseFloat(initialSlider.dataset.value) / 100 : 1; // Asegurarse de que sea un número válido
+            const initialGain = initialSlider ? initialSlider.dataset.value / 100 : 1;
             
-            if (isNaN(initialGain)) {
-                console.error(`Initial gain for section ${sectionId} is not a valid number.`);
-                return;
-            }
-
             audioSources[button.id] = {
                 buffer: audioBuffer,
                 source: null,
