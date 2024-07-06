@@ -35,7 +35,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: #b3b3b3;
+    background-color: #a6a6a6;
     border: 3px solid;
     border-color: #7D7D7D;
     border-radius: 12px;
@@ -80,7 +80,7 @@ body {
     display: block;
 }
 
-.deslizador-circular .outer-circle {
+.deslizador-circular .circulo-exterior {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -90,7 +90,7 @@ body {
     left: 0;
 }
 
-.deslizador-circular .inner-circle {
+.deslizador-circular .circulo-interior {
     width: 65%;
     height: 65%;
     border-radius: 50%;
@@ -101,7 +101,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.deslizador-circular .indicator {
+.deslizador-circular .indicador {
     width: 33%;
     height: 10%;
     background-color: #d9d9d9;
@@ -115,11 +115,11 @@ body {
 .controles-reproduccion { /*Botones de reproduccir y parar la consola en general*/
     display: flex;
     flex-direction: row;
-    align-items: center;
+   	align-items: center;
     gap: 10px;
 }
 
-#reproducir, #reiniciar {
+#encender, #reiniciar {
     width: 40px;
     height: 40px;
     flex: 1;  
@@ -129,11 +129,22 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    background-color: #7F7F7F;
+    background-color: #d9d9d9;
     font-size: 18px;
     font-weight: bold;
 }
 
+#encender.activo {
+    background-color: #9ee99e; /* Color verde cuando está activo */
+}
+
+#encender i {
+    color: red; /* Color rojo cuando está inactivo */
+}
+
+#encender.activo i {
+    color: black; /* Color negro cuando está activo */
+}
 
 .visualizador {
     height: 100%;
@@ -205,7 +216,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+.mute.activo {
+    background-color: #f78282; /* Color rojo cuando está activo */
+}
 
+.solo.activo {
+    background-color: #93bcee; /* Color azul cuando está activo */
+}
 .audios {
     width: 100%;
     height: 100%;
