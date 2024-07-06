@@ -251,9 +251,9 @@ body {
     font-weight: bold;
 }
 
-.mute:hover, .solo:hover {
+/*.mute:hover, .solo:hover {
     background-color: #95a5a6;
-}
+}*/
 
 /* Estilos para selector1 y selector2 */
 #selector1, #selector2 {
