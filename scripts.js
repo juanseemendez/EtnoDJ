@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const audioButtons = document.querySelectorAll('.selector');
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    document.getElementById('reproducir').addEventListener('click', function() {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        console.log('AudioContext created or resumed:', audioContext);
+    });
+    
     const audioSources = {};
 
     function loadAudio(url) {
